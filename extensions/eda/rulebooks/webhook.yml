@@ -1,0 +1,23 @@
+---
+- name: Webhook rulebook example
+  hosts: all 
+  gather_facts: false
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5229
+  rules:
+    - name: Say Howdy
+      condition: event.payload.message == "Howdy! Ansible EDA"
+      action:
+        run_job_template:
+          name: print_job_template
+          organization: Default
+          job_args:
+            extra_vars:
+              eda_message: "{{ event.payload.message }}"
+    - name: Say whatever  
+      condition: event.payload.message != "Howdy! Ansible EDA"
+      action: 
+        debug:
+          msg: "{{ event.payload.message }}"
