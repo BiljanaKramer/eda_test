@@ -8,10 +8,4 @@
     - name: Debug
       action:
         debug:
-          msg: 'Hello'
-    - name: Run job
-      condition: false
-      action:
-        run_job_template:
-          name: Core_Platform_TMPLT_aap_testing
-          organization: org_Core-Platform
+          msg: "Hello"
