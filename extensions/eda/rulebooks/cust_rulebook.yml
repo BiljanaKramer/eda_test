@@ -14,5 +14,5 @@
       condition: true
       action:
         run_job_template:
-          name: print_job_project
+          name: print_job_template
           organization: Default
