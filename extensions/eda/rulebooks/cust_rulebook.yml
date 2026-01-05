@@ -10,3 +10,9 @@
       action:
         debug:
           msg: "Hello"
+    - name: Run job
+      condition: false
+      action:
+        run_job_template:
+          name: print_job_project
+          organization: Default
